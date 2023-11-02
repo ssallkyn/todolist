@@ -1,0 +1,22 @@
+<%- include('header') -%>
+
+<div class="box" id="heading">
+    <h1><%= listTitle %></h1>
+</div>
+
+<div class="box">
+    <% for (let i = 0; i < newListItems.length; i++) { %>
+        <div class="item">
+            <h2><%= newListItems[i].title %></h2>
+            <p class="short-content"><%= newListItems[i].content.slice(0, 100) %></p>
+            <a href="#" onclick="readMore(<%= i %>)" id="readMoreBtn<%= i %>">Read more</a>
+        </div>
+    <% } %>
+
+    <form class="item" action="/" method="post">
+        <input type="text" name="newItem" placeholder="New Blog Post" autocomplete="off" required>
+        <button type="submit">Add</button>
+    </form>
+</div>
+
+<%- include('footer') -%>
